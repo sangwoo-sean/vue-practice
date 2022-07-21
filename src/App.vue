@@ -1,17 +1,10 @@
 <template>
   <div id="app" class="container">
     <h1>To Do</h1>
-    <input type="text" class="w-100 p-3" placeholder="Enter Todo" @keyup.enter="addTodo">
+    <CompletedTodo />
+    <AddTodo />
     <hr>
-    <TodoItem
-        v-for="todo in todos"
-        :key="todo.id"
-        :todo="todo"
-        @toggle-checkbox="toggleCheckbox"
-        @deleteTodo="deleteTodo"
-    >
-      {{ todo }}
-    </TodoItem>
+    <TodoList />
   </div>
 </template>
 
@@ -38,35 +31,15 @@ nav a.router-link-exact-active {
 }
 </style>
 <script>
-import TodoItem from "@/components/TodoItem";
+import TodoList from "@/components/TodoList";
+import AddTodo from "@/components/AddTodo";
+import CompletedTodo from "@/components/CompletedTodo";
 
 export default {
-  components: {TodoItem},
-  data() {
-    return {
-      todos: this.$store.state.todos
-    }
-  },
-  methods: {
-    addTodo(e) {
-      const text = e.currentTarget.value;
-      const todoItem = {
-        id: Math.random(),
-        text,
-        checked: false
-      };
-      this.todos.push(todoItem);
-
-      e.currentTarget.value = '';
-    },
-    toggleCheckbox({id, checked}) {
-      const target = this.todos.find(todo => todo.id === id);
-      target.checked = checked;
-    },
-    deleteTodo(id) {
-      this.todos = this.todos.filter(todo => todo.id !== id);
-    },
-  },
-
+  components: {
+    CompletedTodo,
+    AddTodo,
+    TodoList
+  }
 }
 </script>
