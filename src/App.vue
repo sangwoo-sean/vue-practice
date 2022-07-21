@@ -44,18 +44,7 @@ export default {
   components: {TodoItem},
   data() {
     return {
-      todos: [
-        {
-          id: 1,
-          text: 'buy a car',
-          checked: false
-        },
-        {
-          id: 2,
-          text: 'buy a house',
-          checked: true
-        }
-      ]
+      todos: this.$store.state.todos
     }
   },
   methods: {
