@@ -1,10 +1,11 @@
 <template>
   <div id="app" class="container">
-    <h1>To Do</h1>
-    <CompletedTodo />
-    <AddTodo />
+    <h1>Lists</h1>
+    <NavButtons/>
     <hr>
-    <TodoList />
+    <ItemPerPage />
+    <ItemList />
+    <PageButtons />
   </div>
 </template>
 
@@ -31,15 +32,17 @@ nav a.router-link-exact-active {
 }
 </style>
 <script>
-import TodoList from "@/components/TodoList";
-import AddTodo from "@/components/AddTodo";
-import CompletedTodo from "@/components/CompletedTodo";
 
+import NavButtons from "@/components/NavButtons";
+import ItemList from "@/components/ItemList";
+import PageButtons from "@/components/PageButtons";
+import ItemPerPage from "@/components/ItemPerPage";
 export default {
   components: {
-    CompletedTodo,
-    AddTodo,
-    TodoList
+    ItemPerPage,
+    PageButtons,
+    ItemList,
+    NavButtons
   }
 }
 </script>

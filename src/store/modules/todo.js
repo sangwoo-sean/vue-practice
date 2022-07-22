@@ -1,5 +1,5 @@
 export default {
-    namespace: true,
+    namespaced: true,
     state: {
         todos: [
             {id: 1, text: 'buy a car', checked: false},
