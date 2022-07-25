@@ -1,11 +1,11 @@
 <template>
   <div id="app" class="container">
-    <h1>Lists</h1>
-    <NavButtons/>
-    <hr>
-    <ItemPerPage />
-    <ItemList />
-    <PageButtons />
+    <p>
+      <router-link to="/">home</router-link>
+      <router-link to="/about">about</router-link>
+      <router-link to="/list">list</router-link>
+    </p>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -30,19 +30,15 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
+a {
+  margin-right: 30px;
+}
 </style>
 <script>
-
-import NavButtons from "@/components/NavButtons";
-import ItemList from "@/components/ItemList";
-import PageButtons from "@/components/PageButtons";
-import ItemPerPage from "@/components/ItemPerPage";
 export default {
   components: {
-    ItemPerPage,
-    PageButtons,
-    ItemList,
-    NavButtons
+
   }
 }
 </script>
